@@ -1,0 +1,8 @@
+.DS_STORE
+config.rb
+.sass-cache/
+kss/
+
+# ignore grunt files
+node_modules
+npm-debug.log

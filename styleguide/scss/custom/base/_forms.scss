@@ -1,0 +1,82 @@
+/*------------------------------------*\
+    $FORMS
+\*------------------------------------*/
+/*input:valid, textarea:valid {}
+input:invalid, textarea:invalid {}*/
+@mixin placeholder($clr: $base-ui-color) { color: $clr;}
+
+::-webkit-input-placeholder { @include placeholder();}
+:-moz-placeholder { @include placeholder();}
+:-o-placeholder { @include placeholder();}
+:-ms-placeholder { @include placeholder();}
+
+label { cursor: pointer;}
+
+textarea { resize: vertical;}
+
+button, input, select, textarea { vertical-align: baseline;}
+
+input, textarea {
+  border: 1px solid $base-ui-color;
+  height: auto;         // don't apply heights set to inputs
+  line-height: normal;  // all browsers must use FF's UA !important for consistency
+  padding: .5em;
+}
+
+input[type="checkbox"],
+input[type="radio"] { margin-bottom: 0;}
+
+
+
+
+
+@if $use-icons == true {
+
+/*------------------------------------*\
+    $CUSTOM RADIOS & CHECKBOXES
+\*------------------------------------*/
+/**
+ * $use-icons must be set to true to use custom radios and checkboxes
+ *
+ * custom checkbox and radio icons should be added to typography/_icons.scss
+ * which these styles will reference
+
+  input[type=[radio|checkbox].visuallyhidden
+  label
+    i.radio_-icon
+    | my custom radio's label text
+
+ */
+%custom-radio-base {
+  @extend %icon;
+  vertical-align: sub;
+
+  &:before {
+    position: relative;
+    line-height: 1;
+    z-index: 10;
+  }
+}
+
+.radio_-icon,
+.checkbox_-icon { @extend %custom-radio-base;}
+
+.checkbox_-icon {
+  &:before { @extend %icon-checkbox-false:before;}
+}
+
+.radio_-icon {
+  &:before { @extend %icon-radio-false:before;}
+}
+
+input:checked + label {
+  & > .radio_-icon {
+    &:before { @extend %icon-radio-true:before;}
+  }
+
+  & > .checkbox_-icon {
+    &:before { @extend %icon-checkbox-true:before;}
+  }
+}
+
+} // endif

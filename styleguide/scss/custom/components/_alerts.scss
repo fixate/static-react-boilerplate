@@ -1,0 +1,30 @@
+@if $use-alerts == true {
+
+/*------------------------------------*\
+    $ALERTS
+\*------------------------------------*/
+$alert-types: success, danger, error, info;
+
+@each $alert-type in $alert-types {
+  .alert_-#{$alert-type} {
+    @extend %alert;
+  }
+}
+
+.alert_-success {
+  color: $clr-success;
+  border-color: $clr-success-ltr;
+}
+
+.alert_-danger,
+.alert_-error {
+  color: $clr-danger;
+  border-color: $clr-danger-ltr;
+}
+
+.alert_-info {
+  color: $clr-info;
+  border-color: $clr-info-ltr;
+}
+
+}//endif

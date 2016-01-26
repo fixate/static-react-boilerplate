@@ -1,0 +1,43 @@
+/*------------------------------------*\
+    $WRAPS
+\*------------------------------------*/
+$wrap-widths: (
+  base: 1280px
+);
+
+/**
+ * Generates placeholders for wrap widths
+ * e.g.
+
+  %wrap-width_-large { max-width: 1280px;}
+  %wrap-width        { max-width: 960px;}
+  %wrap-width_-small { max-width: 640px;}
+ */
+@each $wrap-name, $wrap-width in $wrap-widths {
+  @if $wrap-name == 'base' {
+    %wrap-width { max-width: $wrap-width;}
+  } @else {
+    %wrap-width_-#{$wrap-name} { max-width: $wrap-width;}
+  }
+}
+
+%wrap-margin {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+%wrap-padding {
+  @include px-and-rem(padding-left, 1);
+  @include px-and-rem(padding-right, 1);
+}
+
+%wrap-base {
+  @extend %wrap-margin;
+  @extend %wrap-padding;
+}
+
+%wrap {
+  @extend %wrap-base;
+  @extend %wrap-width;
+}
+.wrap { @extend %wrap;}

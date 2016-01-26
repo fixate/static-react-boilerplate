@@ -1,0 +1,24 @@
+/*------------------------------------*\
+    $FONT COLOR MODIFIERS
+\*------------------------------------*/
+%fc_-base { color: $clr-base;}
+a%fc_-base,
+button%fc_-base {
+  @extend %fc_-base;
+
+  &:hover,
+  &:focus { color: $clr-base-lt;}
+
+  &:active { color: $clr-base-dk;}
+}
+
+%fc_-primary { color: $clr-primary;}
+a%fc_-primary,
+button%fc_-primary {
+  @extend %fc_-primary;
+
+  &:hover,
+  &:focus { color: $clr-primary-lt;}
+
+  &:active { color: $clr-primary-dk;}
+}

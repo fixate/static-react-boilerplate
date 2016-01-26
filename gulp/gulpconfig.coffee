@@ -1,25 +1,24 @@
-templates = "src/site/templates"
-assets = "#{templates}/assets"
+base = "app"
+assets = "#{base}/assets"
 
 module.exports =
   path:
-    db_backup: "database"
     dev:
+      base:   "#{base}"
       assets: "#{assets}"
       css:    "#{assets}/css"
       js:     "#{assets}/js"
       img:    "#{assets}/img"
       fnt:    "#{assets}/fnt"
       scss:   "#{assets}/css/scss"
-      coffee: "#{assets}/js/coffee"
-      php:    "#{templates}"
-      views:  "#{templates}/views"
     prod:
       assets: "#{assets}/public"
       css:    "#{assets}/public/css"
       fnt:    "#{assets}/public/fnt"
       img:    "#{assets}/public/img"
       js:     "#{assets}/public/js"
+
+    dest: 'dist'
 
   plumber:
     errorHandler: false

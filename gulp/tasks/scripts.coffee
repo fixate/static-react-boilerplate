@@ -1,58 +1,49 @@
 gulp       = require "gulp"
 gutil      = require "gulp-util"
+assign     = require "lodash/object/assign"
 babelify   = require "babelify"
 browserify = require "browserify"
 es         = require "event-stream"
 eslint     = require "gulp-eslint"
 rename     = require "gulp-rename"
 source     = require "vinyl-source-stream"
-transform  = require "vinyl-transform"
+buffer     = require "vinyl-buffer"
+watchify   = require 'watchify'
+sourcemaps = require 'gulp-sourcemaps'
 
-path       = require("../gulpconfig").path
-
-bundleScripts = (files) ->
-  tasks = files.map (entry) ->
-    browserify({ entries: [entry], debug: true })
-      .transform(babelify, {presets: ['react', 'es2015', 'stage-0']})
-      .bundle().on('error', (err) ->
-        gutil.log(err.message)
-        this.emit 'end'
-      )
-      .pipe(source(entry))
-      .pipe(rename({
-        extname: '.bundle.js'
-      }))
-      .pipe(gulp.dest('./'))
-
-  es.merge.apply(null, tasks)
-
-
-
+conf       = require("../gulpconfig")
 
 
 #*------------------------------------*\
-#     $SCRIPTS
+#     $COMPILE JS
 #*------------------------------------*/
-gulp.task 'scripts',  () ->
-  files = [
-    "#{path.dev.js}/map.js"
-  ]
+customOpts =
+  entries: "#{conf.path.dev.js}/index.jsx"
+  debug: true
 
-  bundleScripts(files)
+opts = assign({}, watchify.args, customOpts)
+b = watchify(browserify(opts))
+
+b.transform(babelify, presets: ['es2015', 'react', 'stage-0'], plugins: ['transform-class-properties'])
+
+bundle = ->
+  b.bundle()
+    .on('error', gutil.log.bind(gutil, 'Browserify Error'))
+    .pipe(source('bundle.js'))
+    .pipe(buffer())
+    .pipe(sourcemaps.init(loadMaps: true))
+    .pipe(sourcemaps.write('./'))
+    .pipe gulp.dest("#{conf.path.dest}/assets/js")
+    .pipe global.browserSync.reload({stream: true})
+
+# so you can run `gulp js` to build the file
+b.on 'update', bundle
+# on any dep update, runs the bundler
+b.on 'log', gutil.log
+
+gulp.task "scripts", bundle
 
 
-
-
-
-#*------------------------------------*\
-#     $SCRIPTS VENDORS
-#*------------------------------------*/
-gulp.task 'scripts:vendors', () ->
-  # files = [
-  #   "#{path.dev.js}/vendor.js"
-  # ]
-
-  # bundleScripts(files)
 
 
 
@@ -63,7 +54,7 @@ gulp.task 'scripts:vendors', () ->
 #*------------------------------------*/
 gulp.task 'scripts:lint',  () ->
   files = [
-    "#{path.dev.js}/**/!(*.bundle).js"
+    "#{path.dev.js}/**/!(*.bundle).{js,jsx}"
   ]
 
   gulp.src(files)

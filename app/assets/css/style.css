@@ -1,0 +1,2558 @@
+@charset "UTF-8";
+/*
+Theme Name: Theme_Name
+Theme URI: theme_url
+Description: theme_description
+Author: author_name
+Author URI: author_url
+Version: theme_version
+.
+Any general information, license statements, plugin requirements, or any other information you
+might want to share.
+.
+*/
+/**
+ * Config
+ *
+ * Config is defined before defaults so that variables override their !default
+ * counterparts
+ */
+/*------------------------------------*    VARS.SCSS
+\*------------------------------------*/
+/**
+ * Any variables you find set in this framework's `_defaults.scss` that you do not wish to
+ * keep, simply redefine here. This means that if this framework, for example, sets
+ * your `$base-font-size` at 16px and you wish it to be 14px, simply redeclare
+ * that variable in this file. this framework ignores its own variables in favour of
+ * using your own, so you can completely modify how this framework works without ever
+ * having to alter the framework itself.
+ */
+/*------------------------------------*    $OBJECTS-AND-ABSTRACTIONS
+\*------------------------------------*/
+/**
+ * All of this framework's objects and abstractions are initially turned off by
+ * default. This means that you start any project with as little as possible,
+ * and introducing objects and abstractions is as simple as switching the
+ * following variables to `true`.
+ */
+/*------------------------------------*    $OVERRIDES
+\*------------------------------------*/
+/**
+ * Place any variables that should override core _defaults.scss here.
+ */
+/*------------------------------------*    $CUSTOM
+\*------------------------------------*/
+/**
+ * Place any of your own variables that sit on top of core _defaults.scss here.
+ */
+/*------------------------------------*    $FONTS
+\*------------------------------------*/
+/**
+ * Icon Font
+ *
+ * Dependant on $use-icons being true. These variables are used in the font-face mixin.
+ *
+ * This font is enabled via custom/base/_fonts.scss
+ */
+/**
+ * Base Font Face
+ *
+ * This font is enabled via custom/base/_fonts.scss
+ */
+/**
+ * Base Font Variations
+ */
+/*------------------------------------*    $COLORS
+\*------------------------------------*/
+/**
+ * The base color for text, borders, etc.
+ */
+/**
+ * The primary non-base color
+ */
+/*------------------------------------*  $DEFAULTS
+\*------------------------------------*/
+/**
+ * inuit.css’ default variables. Redefine these in your `_vars.scss` file (found
+ * in the inuit.css-web-template) to override them.
+ */
+/*------------------------------------*  $BASE
+\*------------------------------------*/
+/**
+ * Base variables. These are included first as they provide a basis for calculations
+ * throughout the framework.
+ */
+/**
+ * Base font-family.
+ */
+/**
+ * Default colour for objects’ borders etc.
+ */
+/*------------------------------------*  $FRAMEWORK
+\*------------------------------------*/
+/**
+ * inuit.css will work these next ones out for use within the framework.
+ *
+ * Assign our `$base-line-height` to a new spacing var for more transparency.
+ */
+/*------------------------------------*  $DEBUG
+\*------------------------------------*/
+/**
+ * Debug mode will visually highlight any potential markup/accessibility quirks
+ * in the browser. Set to `true` or `false`.
+ */
+/*------------------------------------*  $RAILS
+\*------------------------------------*/
+/**
+ * Using Rails? You'll need the font-face mixin to behave differently to correctly
+ * load font assets
+ */
+/*------------------------------------*  $BORDER-BOX
+\*------------------------------------*/
+/**
+ * Do you want all elements to adopt `box-sizing:border-box;` as per
+ * paulirish.com/2012/box-sizing-border-box-ftw ?
+ */
+/*------------------------------------*  $PREFIXES
+\*------------------------------------*/
+/*------------------------------------*  $GRIDS
+\*------------------------------------*/
+/**
+ * Use either a flexbox based grid, an inline-block based grid, or both!
+ */
+/**
+ * A unitless value will output rem units with px fallback for gutters,
+ * otherwise a unit value will output only that value
+ */
+/*------------------------------------*  $RESPONSIVE
+\*------------------------------------*/
+/**
+ * Responsiveness?
+ */
+/**
+ * Responsiveness for widescreen/high resolution desktop monitors and beyond?
+ * Note: `$responsive` variable above must be set to true before enabling this.
+ */
+/**
+ * Responsive push and pull produce a LOT of code, only turn them on if you
+ * definitely need them.
+ */
+/**
+ * Note: `$push` variable above must be set to true before enabling these.
+ */
+/**
+ * Note: `$pull` variable above must be set to true before enabling these.
+ */
+/**
+ * Tell inuit.css when breakpoints start.
+ */
+/*------------------------------------*  $FONT-SIZES
+\*------------------------------------*/
+/**
+ * Font-sizes (in pixels). Refer to relevant sections for their implementations.
+ */
+/*------------------------------------*  $QUOTES
+\*------------------------------------*/
+/**
+ * English quote marks?
+ */
+/**
+ * If you want English quotes then please do not edit these; they’re only here
+ * because Sass needs them.
+ */
+/**
+ * If you need non-English quotes, please alter the following values accordingly:
+ */
+/*------------------------------------*  $TABLES
+\*------------------------------------*/
+/*------------------------------------*  $IMAGES
+\*------------------------------------*/
+/*------------------------------------*  $CODE
+\*------------------------------------*/
+/*------------------------------------*  $BRAND
+\*------------------------------------*/
+/**
+ * Brand stuff
+ */
+/**
+ * How big would you like round corners to be by default?
+ */
+/*------------------------------------*  $COLORS
+\*------------------------------------*/
+/*------------------------------------*  $OBJECTS AND ABSTRACTIONS
+\*------------------------------------*/
+/**
+ * Which objects and abstractions would you like to use?
+ */
+/**
+ * Import the rest of the framework, followed by custom styles
+ */
+/*------------------------------------*    INUIT.CSS
+\*------------------------------------*/
+/*!*
+ *
+ * inuitcss.com -- @inuitcss -- @csswizardry
+ *
+ */
+/**
+ * inuit.css acts as a base stylesheet which you should extend with your own
+ * theme stylesheet.
+ *
+ * inuit.css aims to do the heavy lifting; sorting objects and abstractions,
+ * design patterns and fiddly bits of CSS, whilst leaving as much design as
+ * possible to you. inuit.css is the scaffolding to your decorator.
+ *
+ * This stylesheet is heavily documented and contains lots of comments, please
+ * take care to read and refer to them as you build. For further support please
+ * tweet at @inuitcss.
+ *
+ * Owing to the amount of comments please only ever use minified CSS in
+ * production. This file is purely a dev document.
+ *
+ * The table of contents below maps to section titles of the same name, to jump
+ * to any section simply run a find for $[SECTION-TITLE].
+ *
+ * Most objects and abstractions come with a chunk of markup that you should be
+ * able to paste into any view to quickly see how the CSS works in conjunction
+ * with the correct HTML.
+ *
+ * inuit.css is written to this standard: github.com/csswizardry/CSS-Guidelines
+ *
+ * LICENSE
+ *
+ * Copyright 2013 Harry Roberts
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * Thank you for choosing inuit.css. May your web fonts render perfectly.
+ */
+/*------------------------------------*    $CONTENTS
+\*------------------------------------*/
+/**
+ * CONTENTS............You’re reading it!
+ * WARNING.............Here be dragons!
+ * IMPORTS.............Begin importing the sections below
+ *
+ * MIXINS..............Super-simple Sass stuff
+ * NORMALIZE...........normalize.css
+ * RESET...............Set some defaults
+ * CLEARFIX............
+ * SHARED..............Shared declarations
+ *
+ * MAIN................High-level elements like `html`, `body`, etc.
+ * HEADINGS............Double-stranded heading hierarchy
+ * PARAGRAPHS..........
+ * SMALLPRINT..........Smaller text elements like `small`
+ * QUOTES..............
+ * CODE................
+ * LISTS...............
+ * IMAGES..............
+ * TABLES..............
+ * FORMS...............
+ *
+ * GRIDS...............Fluid, proportional and nestable grids
+ * COLUMNS.............CSS3 columns
+ * NAV.................A simple abstraction to put a list in horizontal nav mode
+ * OPTIONS.............Grouped nav items
+ * PAGINATION..........Very stripped back, basic paginator
+ * BREADCRUMB..........Simple breadcrumb trail object
+ * MEDIA...............Media object
+ * MARGINALIA..........Simple marginalia content
+ * ISLAND..............Boxed off content
+ * BLOCK-LIST..........Blocky lists of content
+ * MATRIX..............Gridded lists
+ * SPLIT...............A simple split-in-two object
+ * THIS-OR-THIS........Options object
+ * LINK-COMPLEX........
+ * FLYOUT..............Flyout-on-hover object
+ * ARROWS..............CSS arrows
+ * SPRITE..............Generic spriting element
+ * ICON-TEXT...........Icon and text couplings
+ * BEAUTONS............Use the beautons micro library
+ * LOZENGES............Basic lozenge styles
+ * RULES...............Horizontal rules
+ * STATS...............Simple stats object
+ * GREYBOX.............Wireframing styles
+ *
+ * WIDTHS..............Width classes for use alongside the grid system etc.
+ * PUSH................Push classes for manipulating grids
+ * PULL................Pull classes for manipulating grids
+ * BRAND...............Helper class to apply brand treatment to elements
+ * DEBUG...............Enable to add visual flags for debugging purposes
+ */
+/*------------------------------------*    $WARNING
+\*------------------------------------*/
+/*
+ * inuit.css, being an OO framework, works in keeping with the open/closed
+ * principle. The variables you set previously are now being used throughout
+ * inuit.css to style everything we need for a base. Any custom styles SHOULD
+ * NOT be added or modified in inuit.css directly, but added via your theme
+ * stylesheet as per the open/closed principle:
+ *
+ * csswizardry.com/2012/06/the-open-closed-principle-applied-to-css
+ *
+ * Try not to edit any CSS beyond this point; if you find you need to do so
+ * it is a failing of the framework so please tweet at @inuitcss.
+ */
+/*------------------------------------*    $BASE
+\*------------------------------------*/
+/*------------------------------------*    $FUNCTIONS
+\*------------------------------------*/
+/*------------------------------------*    $MAP GET DEEP
+\*------------------------------------*/
+/*------------------------------------*    $MIXINS
+\*------------------------------------*/
+/*------------------------------------*    $ACCESSIBILITY
+\*------------------------------------*/
+/**
+ * CSS arrows!!! But... before you read on, you might want to grab a coffee...
+ *
+ * This mixin creates a CSS arrow on a given element. We can have the arrow
+ * appear in one of 12 locations, thus:
+ *
+ *     01  02  03
+ *  +------------------+
+ * 12 |          | 04
+ *  |          |
+ * 11 |          | 05
+ *  |          |
+ * 10 |          | 06
+ *  +------------------+
+ *     09  08  07
+ *
+ * You pass this position in along with a desired arrow color and optional
+ * border color, for example:
+ *
+ * `@include arrow(top, left, red)`
+ *
+ * for just a single, red arrow, or:
+ *
+ * `@include arrow(bottom, center, red, black)`
+ *
+ * which will create a red triangle with a black border which sits at the bottom
+ * center of the element. Call the mixin thus:
+ *
+   .foo{
+     background-color:#BADA55;
+     border:1px solid #ACE;
+     @include arrow(top, left, #BADA55, #ACE);
+   }
+ *
+ */
+/**
+ * Create a fully formed type style (sizing and vertical rhythm) by passing in a
+ * single value, e.g.:
+ *
+   `@include font-size(10px);`
+ *
+ * Thanks to @redclov3r for the `line-height` Sass:
+ * twitter.com/redclov3r/status/250301539321798657
+ */
+/**
+ * This mixin allows for vendor prefixing of gradients, and allows for multiple
+ * backgrounds. It also allows you to define with which property you would like
+ * to apply your gradients.
+ * i.e. background / background-image / etc.
+ *
+ * It supports both the old and new syntaxes - but be warned - using the official
+ * 'to [direction]' syntax will result in browsers supporting only the old webkit
+ * syntax not rendering a gradient at all.
+ *
+ * https: *developer.mozilla.org/en-US/docs/CSS/Tutorials/Using_CSS_gradients
+
+ * Example:
+   @include gradient(background,
+ 	  									linear-gradient(180deg, transparent, hsla(0, 0%, 100%, .1) 10px 10px)
+                     );
+ */
+/**
+ * Style any number of headings in one fell swoop, e.g.:
+ *
+   .foo{
+     @include headings(1, 3){
+       color:#BADA55;
+     }
+  }
+ *
+ * With thanks to @lar_zzz, @paranoida, @rowanmanning and ultimately
+ * @thierrylemoulec for refining and improving my initial mixin.
+ */
+/**
+ * Create CSS keyframe animations for all vendors in one go, e.g.:
+ *
+   .foo{
+     @include vendor(animation, shrink 3s);
+   }
+
+   @include keyframe(shrink){
+     from{
+       font-size:5em;
+     }
+   }
+ *
+ * Courtesy of @integralist: https://gist.github.com/Integralist/3931680
+ */
+/**
+ * Media query mixin.
+ *
+ * It’s not great practice to define solid breakpoints up-front, preferring to
+ * modify your design when it needs it, rather than assuming you’ll want a
+ * change at ‘mobile’. However, as inuit.css is required to take a hands off
+ * approach to design decisions, this is the closest we can get to baked-in
+ * responsiveness. It’s flexible enough to allow you to set your own breakpoints
+ * but solid enough to be frameworkified.
+ *
+ * We define some broad breakpoints in our vars file that are picked up here
+ * for use in a simple media query mixin. Our options are:
+ *
+ * palm
+ * lap
+ * lap-and-up
+ * portable
+ * desk
+ * desk-wide
+ *
+ * Not using a media query will, naturally, serve styles to all devices.
+ *
+ * `@include media-query(palm){ [styles here] }`
+ *
+ * We work out your end points for you:
+ */
+/**
+ * Force overly long spans of text to truncate, e.g.:
+ *
+   `@include truncate(100%);`
+ *
+ * Where `$truncation-boundary` is a united measurement.
+ */
+/**
+ * Create vendor-prefixed CSS in one go, e.g.
+ *
+   `@include vendor(border-radius, 4px);`
+ *
+ */
+/*------------------------------------*    $BASE
+\*------------------------------------*/
+/*------------------------------------*  $ALL BASE IMPORTS
+\*------------------------------------*/
+/*------------------------------------*  $RESET
+\*------------------------------------*/
+/**
+ * A more considered reset; more of a restart...
+ * As per: csswizardry.com/2011/10/reset-restarted
+ */
+/**
+  * Let’s make the box model all nice, shall we...?
+  */
+*, *:before, *:after {
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box; }
+
+/**
+ * The usual...
+ */
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre,
+dl, dd, ol, ul,
+form, fieldset, legend,
+table, th, td, caption,
+hr {
+  margin: 0;
+  padding: 0; }
+
+/**
+ * Give a help cursor to elements that give extra info on `:hover`.
+ */
+abbr[title], dfn[title] {
+  cursor: help; }
+
+/**
+ * Remove underlines from potentially troublesome elements.
+ */
+u, ins {
+  text-decoration: none; }
+
+/**
+ * Apply faux underline via `border-bottom`.
+ */
+ins {
+  border-bottom: 1px solid; }
+
+/**
+ * So that `alt` text is visually offset if images don’t load.
+ */
+img {
+  font-style: italic; }
+
+/**
+ * Give form elements some cursor interactions...
+ */
+label,
+input,
+textarea,
+button,
+select,
+option {
+  cursor: pointer; }
+
+.text-input:active,
+.text-input:focus,
+textarea:active,
+textarea:focus {
+  cursor: text;
+  outline: none; }
+
+/*! normalize.css v2.1.0 | MIT License | git.io/normalize */
+/* ==========================================================================
+   HTML5 display definitions
+   ========================================================================== */
+/*
+ * Correct `block` display not defined in IE 8/9.
+ */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+  display: block; }
+
+/*
+ * Correct `inline-block` display not defined in IE 8/9.
+ */
+audio,
+canvas,
+video {
+  display: inline-block; }
+
+/*
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+audio:not([controls]) {
+  display: none;
+  height: 0; }
+
+/*
+ * Address styling not present in IE 8/9.
+ */
+[hidden] {
+  display: none; }
+
+/**
+ * 5. Default behaviour for touch-based browsing on IE10 devices running
+ * Windows 8
+ */
+canvas {
+  -ms-touch-action: double-tap-zoom; }
+
+/* 5 */
+/* ==========================================================================
+   Base
+   ========================================================================== */
+/*
+ * 1. Set default font family to sans-serif.
+ * 2. Prevent iOS text size adjust after orientation change, without disabling
+ *  user zoom.
+ */
+html {
+  font-family: sans-serif;
+  /* 1 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+  -ms-text-size-adjust: 100%;
+  /* 2 */ }
+
+/*
+ * Remove default margin.
+ */
+body {
+  margin: 0; }
+
+/* ==========================================================================
+   Links
+   ========================================================================== */
+/*
+ * Address `outline` inconsistency between Chrome and other browsers.
+ */
+a:focus {
+  outline: thin dotted; }
+
+/*
+ * Improve readability when focused and also mouse hovered in all browsers.
+ */
+a:active,
+a:hover {
+  outline: 0; }
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+/*
+ * Address variable `h1` font-size and margin within `section` and `article`
+ * contexts in Firefox 4+, Safari 5, and Chrome.
+ */
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0; }
+
+/*
+ * Address styling not present in IE 8/9, Safari 5, and Chrome.
+ */
+abbr[title] {
+  border-bottom: 1px dotted; }
+
+/*
+ * Address style set to `bolder` in Firefox 4+, Safari 5, and Chrome.
+ */
+b,
+strong {
+  font-weight: bold; }
+
+/*
+ * Address styling not present in Safari 5 and Chrome.
+ */
+dfn {
+  font-style: italic; }
+
+/*
+ * Address differences between Firefox and other browsers.
+ */
+hr {
+  box-sizing: content-box;
+  height: 0; }
+
+/*
+ * Address styling not present in IE 8/9.
+ */
+mark {
+  background: #ff0;
+  color: #000; }
+
+/*
+ * Correct font family set oddly in Safari 5 and Chrome.
+ */
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, serif;
+  font-size: 1em; }
+
+/*
+ * Improve readability of pre-formatted text in all browsers.
+ */
+pre {
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word; }
+
+/*
+ * Set consistent quote types.
+ */
+q {
+  quotes: "\201C" "\201D" "\2018" "\2019"; }
+
+/*
+ * Address inconsistent and variable font size in all browsers.
+ */
+small {
+  font-size: 80%; }
+
+/*
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline; }
+
+sup {
+  top: -0.5em; }
+
+sub {
+  bottom: -0.25em; }
+
+/* ==========================================================================
+   Embedded content
+   ========================================================================== */
+/*
+ * Remove border when inside `a` element in IE 8/9.
+ */
+img {
+  border: 0; }
+
+/*
+ * Correct overflow displayed oddly in IE 9.
+ */
+svg:not(:root) {
+  overflow: hidden; }
+
+/* ==========================================================================
+   Figures
+   ========================================================================== */
+/*
+ * Address margin not present in IE 8/9 and Safari 5.
+ */
+figure {
+  margin: 0; }
+
+/* ==========================================================================
+   Forms
+   ========================================================================== */
+/*
+ * Define consistent border, margin, and padding.
+ */
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em; }
+
+/*
+ * 1. Correct `color` not being inherited in IE 8/9.
+ * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ */
+legend {
+  border: 0;
+  /* 1 */
+  padding: 0;
+  /* 2 */ }
+
+/*
+ * 1. Correct font family not being inherited in all browsers.
+ * 2. Correct font size not being inherited in all browsers.
+ * 3. Address margins set differently in Firefox 4+, Safari 5, and Chrome.
+ */
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  /* 1 */
+  font-size: 100%;
+  /* 2 */
+  margin: 0;
+  /* 3 */ }
+
+/*
+ * Address Firefox 4+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+button,
+input {
+  line-height: normal; }
+
+/*
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Chrome, Safari 5+, and IE 8+.
+ * Correct `select` style inheritance in Firefox 4+ and Opera.
+ */
+button,
+select {
+  text-transform: none; }
+
+/*
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *  and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *  `input` and others.
+ */
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  /* 2 */
+  cursor: pointer;
+  /* 3 */ }
+
+/*
+ * Re-set default cursor for disabled elements.
+ */
+button[disabled],
+html input[disabled] {
+  cursor: default; }
+
+/*
+ * 1. Address box sizing set to `content-box` in IE 8/9.
+ * 2. Remove excess padding in IE 8/9.
+ */
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */ }
+
+/*
+ * 1. Address `appearance` set to `searchfield` in Safari 5 and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome
+ *  (include `-moz` to future-proof).
+ */
+input[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  /* 2 */
+  box-sizing: padding-box; }
+
+/*
+ * Remove inner padding and search cancel button in Safari 5 and Chrome
+ * on OS X.
+ */
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none; }
+
+/*
+ * Remove inner padding and border in Firefox 4+.
+ */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0; }
+
+/*
+ * 1. Remove default vertical scrollbar in IE 8/9.
+ * 2. Improve readability and alignment in all browsers.
+ */
+textarea {
+  overflow: auto;
+  /* 1 */
+  vertical-align: top;
+  /* 2 */ }
+
+/* ==========================================================================
+   Tables
+   ========================================================================== */
+/*
+ * Remove most spacing between table cells.
+ */
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/*------------------------------------*  $DOCUMENT
+\*------------------------------------*/
+html {
+  /*
+   * Can't use relative units on html due to bug on
+   * Chrome and Safari.
+   * CodePen: http://codepen.io/larrybotha/pen/wKYYXE
+   * Chrome Bug Tracker: https://code.google.com/p/chromium/issues/detail?id=319623#c16
+   */
+  /*
+   * TODO: use relative unit once Chrome bug is fixed
+   */
+  font-size: 16px;
+  min-height: 100%; }
+
+html, body, button, input, select, textarea {
+  font-family: "[font-name]", Arial, sans-serif;
+  color: #666; }
+
+/**
+ * FireFox on Android adds gradients to these elements
+ * Let's end the tyranny
+ */
+button, input, select, textarea {
+  background-image: none; }
+
+body {
+  background-color: #fff;
+  font-size: 1em;
+  line-height: 1.5;
+  margin: 0; }
+
+/*
+ * Remove text-shadow in selection highlight: h5bp.com/i
+ * These selection declarations have to be separate
+ */
+::-moz-selection {
+  background: #333;
+  color: #fff;
+  text-shadow: none; }
+
+::selection {
+  background: #333;
+  color: #fff;
+  text-shadow: none; }
+
+/*------------------------------------*  $CODE
+\*------------------------------------*/
+/**
+ * Use an explicit font stack to ensure browsers render correct `line-height`.
+ */
+pre {
+  overflow: auto; }
+
+pre mark {
+  background: none;
+  border-bottom: 1px solid;
+  color: inherit; }
+
+/*------------------------------------*  $FORMS
+\*------------------------------------*/
+/**
+ *
+ * Demo: jsfiddle.net/inuitcss/MhHHU
+ *
+ */
+fieldset {
+  padding: 1.5; }
+
+/**
+ * Text inputs
+ *
+ * Instead of a `[type]` selector for each kind of form input, we just use a
+ * class to target any/every one, e.g.:
+   <input type=text class=text-input>
+   <input type=email class=text-input>
+   <input type=password class=text-input>
+ *
+ */
+.text-input,
+textarea {
+  /**
+   * Style these via your theme stylesheet.
+   */ }
+
+/**
+ * Radios and Checkboxes
+ *
+ * Make radios and checkboxes appear clickable
+ */
+input[type="radio"],
+input[type="checkbox"] {
+  cursor: pointer;
+  border: none; }
+
+/*------------------------------------*		$SHARED
+\*------------------------------------*/
+/**
+ * Where `margin-bottom` is concerned, this value will be the same as the
+ * base line-height. This allows us to keep a consistent vertical rhythm.
+ * As per: csswizardry.com/2012/06/single-direction-margin-declarations
+ */
+/**
+ * Base elements
+ */
+h1, h2, h3, h4, h5, h6, hgroup,
+ul, ol, dl,
+blockquote, p, address,
+table,
+fieldset, figure,
+pre {
+  margin-top: 0;
+  margin-bottom: 24px;
+  margin-bottom: 1.5rem; }
+
+/**
+ * `hr` elements only take up a few pixels, so we need to give them special
+ * treatment regarding vertical rhythm.
+ */
+hr {
+  margin-bottom: 24px;
+  margin-bottom: 1.5rem; }
+
+/**
+ * Where `margin-left` is concerned we want to try and indent certain elements
+ * by a consistent amount. Define that amount once, here.
+ */
+ul, ol, dd {
+  margin-left: 1.5em; }
+
+/*------------------------------------*  $HEADINGS
+\*------------------------------------*/
+/**
+ * As per: csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css
+ *
+ * When we define a heading we also define a corresponding class to go with it.
+ * This allows us to apply, say, `class=alpha` to a `h3`; a double-stranded
+ * heading hierarchy.
+ */
+h1, .fs_-alpha {
+  font-size: 36px;
+  font-size: 2.25rem; }
+
+h2, .fs_-beta {
+  font-size: 30px;
+  font-size: 1.875rem; }
+
+h3, .fs_-gamma {
+  font-size: 24px;
+  font-size: 1.5rem; }
+
+h4, .fs_-delta {
+  font-size: 20px;
+  font-size: 1.25rem; }
+
+h5, .fs_-epsilon {
+  font-size: 16px;
+  font-size: 1rem; }
+
+h6, .fs_-zeta {
+  font-size: 14px;
+  font-size: 0.875rem; }
+
+/**
+ * A series of classes for setting massive type; for use in heroes, mastheads,
+ * promos, etc.
+ */
+.fs_-giga {
+  font-size: 96px;
+  font-size: 6rem; }
+
+.fs_-mega {
+  font-size: 72px;
+  font-size: 4.5rem; }
+
+.fs_-kilo {
+  font-size: 48px;
+  font-size: 3rem; }
+
+/*------------------------------------*    $IMAGES
+\*------------------------------------*/
+/**
+ * Demo: jsfiddle.net/inuitcss/yMtur
+ */
+/*
+ * Prevent images and embeds from exceeding width of containing element
+ * width:; and height:; above apply
+ */
+img, embed, object, video {
+  max-width: 100%;
+  height: auto; }
+
+/**
+ * Images in `figure` elements.
+ */
+figure > img {
+  display: block; }
+
+/*------------------------------------*    $LISTS
+\*------------------------------------*/
+/**
+ * Remove vertical spacing from nested lists.
+ */
+li > ul,
+li > ol {
+  margin-top: 0;
+  margin-bottom: 0; }
+
+/**
+ * Have a numbered `ul` without the semantics implied by using an `ol`.
+ */
+/*ul*/
+.numbered-list {
+  list-style-type: decimal; }
+
+/*------------------------------------*    $PARAGRAPHS
+\*------------------------------------*/
+/**
+ * The `.lede` class is used to make the introductory text (usually a paragraph)
+ * of a document slightly larger.
+ */
+.lede,
+.lead {
+  font-size: 18px;
+  font-size: 1.125rem; }
+
+/*------------------------------------*    $QUOTES
+\*------------------------------------*/
+/**
+ * If English quotes are set in `_vars.scss`, define them here.
+ */
+/**
+ * Big up @boblet: html5doctor.com/blockquote-q-cite
+ */
+/**
+ * Inline quotes.
+ */
+q {
+  quotes: "‘" "’" "\\201C " "\\201D "; }
+  q:before {
+    content: "\2018";
+    content: open-quote; }
+  q:after {
+    content: "\2019";
+    content: close-quote; }
+  q q:before {
+    content: "\201C";
+    content: open-quote; }
+  q q:after {
+    content: "\201D";
+    content: close-quote; }
+
+/**
+ *
+   <blockquote>
+       <p>Insanity: doing the same thing over and over again and expecting
+       different results.</p>
+       <b class=source>Albert Einstein</b>
+   </blockquote>
+ *
+ */
+blockquote p:first-of-type {
+  margin-top: 0; }
+
+blockquote p:last-of-type {
+  margin-bottom: 0; }
+
+.source {
+  display: block;
+  text-indent: 0; }
+  .source:before {
+    content: "\2014"; }
+
+/*------------------------------------*    $SMALLPRINT
+\*------------------------------------*/
+/**
+ * A series of classes for setting tiny type; for use in smallprint etc.
+ */
+.fs_-milli {
+  font-size: 12px;
+  font-size: 0.75rem; }
+
+.fs_-micro {
+  font-size: 10px;
+  font-size: 0.625rem; }
+
+.fs_-nano {
+  font-size: 8px;
+  font-size: 0.5rem; }
+
+/*------------------------------------*  $TABLES
+\*------------------------------------*/
+/**
+ * We have a lot at our disposal for making very complex table constructs, e.g.:
+ *
+   <table class="table_-bordered  table_-striped  table_-data">
+     <colgroup>
+       <col class=t10>
+       <col class=t10>
+       <col class=t10>
+       <col>
+     </colgroup>
+     <thead>
+       <tr>
+         <th colspan=3>Foo</th>
+         <th>Bar</th>
+       </tr>
+       <tr>
+         <th>Lorem</th>
+         <th>Ipsum</th>
+         <th class=numerical>Dolor</th>
+         <th>Sit</th>
+       </tr>
+     </thead>
+     <tbody>
+       <tr>
+         <th rowspan=3>Sit</th>
+         <td>Dolor</td>
+         <td class=numerical>03.788</td>
+         <td>Lorem</td>
+       </tr>
+       <tr>
+         <td>Dolor</td>
+         <td class=numerical>32.210</td>
+         <td>Lorem</td>
+       </tr>
+       <tr>
+         <td>Dolor</td>
+         <td class=numerical>47.797</td>
+         <td>Lorem</td>
+       </tr>
+       <tr>
+         <th rowspan=2>Sit</th>
+         <td>Dolor</td>
+         <td class=numerical>09.640</td>
+         <td>Lorem</td>
+       </tr>
+       <tr>
+         <td>Dolor</td>
+         <td class=numerical>12.117</td>
+         <td>Lorem</td>
+       </tr>
+     </tbody>
+   </table>
+ *
+ */
+table {
+  width: 100%; }
+
+th,
+td {
+  padding: 6px;
+  padding: 0.375rem;
+  text-align: left; }
+  @media screen and (min-width: 480px) {
+    th,
+    td {
+      padding: 12px;
+      padding: 0.75rem; } }
+
+/*------------------------------------*    $COMPONENTS
+\*------------------------------------*/
+/*------------------------------------*    $ALL COMPONENTS
+\*------------------------------------*/
+/*------------------------------------*    $BUTTONS
+\*------------------------------------*/
+.btn_-primary {
+  position: relative;
+  display: inline-block;
+  background-image: none;
+  background-color: transparent;
+  text-align: center;
+  line-height: normal;
+  vertical-align: middle;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  white-space: nowrap; }
+  .btn_-primary:active, .btn_-primary:focus {
+    outline: none; }
+
+.btn_-primary {
+  transition: all 150ms ease-in;
+  cursor: pointer; }
+  .btn_-primary, .btn_-primary:hover, .btn_-primary:focus {
+    text-decoration: none; }
+  .btn_-primary:active, .btn_-primary:focus {
+    transition: none; }
+  [disabled].btn_-primary, .btn_-primary:disabled {
+    cursor: default; }
+
+/*------------------------------------*    $LAYOUT
+\*------------------------------------*/
+/*------------------------------------*    $ALL LAYOUT
+\*------------------------------------*/
+/*------------------------------------*    $CLEARFIX
+\*------------------------------------*/
+/**
+ * Micro clearfix, as per: css-101.org/articles/clearfix/latest-new-clearfix-so-far.php
+ * Extend the clearfix class with Sass to avoid the `.cf` class appearing over
+ * and over in your markup.
+ */
+.cf:before, .cf:after {
+  content: "";
+  display: table;
+  clear: both; }
+
+/*------------------------------------*    $GRIDS
+\*------------------------------------*/
+/**
+ * Fluid and nestable grid system, e.g.:
+ *
+   <div class="gw">
+       <div class="g  one-third">
+           <p>One third grid</p>
+       </div><!--
+    --><div class="g  two-thirds">
+           <p>Two thirds grid</p>
+       </div><!--
+    --><div class="g  one-half">
+           <p>One half grid</p>
+       </div><!--
+    --><div class="g  one-quarter">
+           <p>One quarter grid</p>
+       </div><!--
+    --><div class="g  one-quarter">
+           <p>One quarter grid</p>
+       </div>
+   </div>
+ *
+ * Demo: jsfiddle.net/inuitcss/CLYUC
+ *
+ */
+/**
+ * Grid wrapper
+ */
+.gw {
+  list-style: none;
+  margin-bottom: 0;
+  margin-left: -24px;
+  margin-left: -1.5rem;
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-lines: multiple;
+  -moz-box-lines: multiple;
+  box-lines: multiple;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap; }
+  .oldie .gw {
+    display: inline-block;
+    width: 100%;
+    width: calc(100% + 1.5em); }
+
+/**
+ * very infrequently occuring grid wrappers as children of grid wrappers.
+ */
+[class*="gw"] > [class*="gw"] {
+  margin-left: 0; }
+
+/**
+   * grid items
+   */
+.g, .g_-tall, .g_-auto, .g_-shrink-wrap {
+  padding-left: 24px;
+  padding-left: 1.5rem;
+  width: 100%; }
+  .oldie .g, .oldie .g_-tall, .oldie .g_-auto, .oldie .g_-shrink-wrap {
+    display: inline-block;
+    vertical-align: top; }
+
+/**
+   * Allow the content of a column to occupy the full height of the
+   * column
+   *
+   * Child div must have flex: 1; or width: 100%; set to fill horizontal
+   * space
+   *
+   * Does not work for legacy browsers
+   */
+.g_-tall {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex; }
+
+/**
+   * Columns that automatically fill the remaining horizontal space
+   *
+   * To be used as is, without column width modifiers. Viewport modifiers will
+   * not override the effect of auto.
+   *
+   * Works mostly on <= IE9, mostly
+   * Requires .oldie class on html tag
+   */
+.g_-auto {
+  box-flex: 1;
+  -webkit-flex: 1;
+  -moz-flex: 1;
+  -ms-flex: 1;
+  flex: 1; }
+  .oldie .g_-auto {
+    display: table-cell; }
+
+/**
+   * Columns that shrink wrap around content - ideal for .g_-auto to occupy
+   * remaining space.
+   *
+   * To be used as is, without column width modifiers. Viewport modifiers will
+   * override shrink-wrap effect
+   *
+   * Works mostly on <= IE9, mostly
+   */
+.g_-shrink-wrap {
+  width: auto; }
+  .oldie .g_-shrink-wrap {
+    display: table-cell; }
+
+/**
+* reversed grids
+*/
+/**
+* gutterless grids have all the properties of regular grids, minus any spacing.
+*/
+/**
+* centered grids align grid items centrally without needing to use push or pull
+* classes.
+*/
+/**
+ * right aligned grids
+ */
+/**
+ * middle aligned grids
+ */
+/**
+ * bottom aligned grids
+ */
+/*------------------------------------*		$WIDTHS
+\*------------------------------------*/
+/**
+ * Sizes in human readable format. These are used in conjunction with other
+ * objects and abstractions found in inuit.css, most commonly the grid system
+ * and faux flexbox.
+ *
+ * We have a mixin to generate our widths and their breakpoint-specific
+ * variations.
+ */
+/**
+	* Whole
+	*/
+.g-1\/1 {
+  width: 100%; }
+
+/**
+	* Halves
+	*/
+.g-1\/2, .g-2\/4, .g-3\/6, .g-4\/8, .g-5\/10, .g-6\/12 {
+  width: 50%; }
+
+/**
+	* Thirds
+	*/
+.g-1\/3, .g-2\/6, .g-4\/12 {
+  width: 33.333%; }
+
+.g-2\/3, .g-4\/6, .g-8\/12 {
+  width: 66.666%; }
+
+/**
+	* Quarters
+	*/
+.g-1\/4, .g-2\/8, .g-3\/12 {
+  width: 25%; }
+
+.g-3\/4, .g-6\/8, .g-9\/12 {
+  width: 75%; }
+
+/**
+	* Fifths
+	*/
+.g-1\/5, .g-2\/10 {
+  width: 20%; }
+
+.g-2\/5, .g-4\/10 {
+  width: 40%; }
+
+.g-3\/5, .g-6\/10 {
+  width: 60%; }
+
+.g-4\/5, .g-8\/10 {
+  width: 80%; }
+
+/**
+	* Sixths
+	*/
+.g-1\/6, .g-2\/12 {
+  width: 16.666%; }
+
+.g-5\/6, .g-10\/12 {
+  width: 83.333%; }
+
+/**
+	* Eighths
+	*/
+.g-1\/8 {
+  width: 12.5%; }
+
+.g-3\/8 {
+  width: 37.5%; }
+
+.g-5\/8 {
+  width: 62.5%; }
+
+.g-7\/8 {
+  width: 87.5%; }
+
+/**
+	* Tenths
+	*/
+.g-1\/10 {
+  width: 10%; }
+
+.g-3\/10 {
+  width: 30%; }
+
+.g-7\/10 {
+  width: 70%; }
+
+.g-9\/10 {
+  width: 90%; }
+
+/**
+	* Twelfths
+	*/
+.g-1\/12 {
+  width: 8.333%; }
+
+.g-5\/12 {
+  width: 41.666%; }
+
+.g-7\/12 {
+  width: 58.333%; }
+
+.g-11\/12 {
+  width: 91.666%; }
+
+/**
+ * If you have set `$responsive` to ‘true’ in `_vars.scss` then you now have
+ * access to these classes. You can define at which breakpoint you’d like an
+ * element to be a certain size, e.g.:
+ *
+ * `<div class="g  g-1/4	g-lap-1/2	g-palm-1/1"> ... </div>`
+ *
+ * This would create a `div` that, at ‘desktop’ sizes, takes up a of-4 of the
+ * horizontal space, a of-2 of that space at ‘tablet’ sizes, and goes full width
+ * at ‘mobile’ sizes.
+ *
+ * Demo: jsfiddle.net/inuitcss/WS4Ge
+ *
+ */
+@media only screen and (max-width: 480px) {
+  /**
+	* Whole
+	*/
+  .g-palm-1\/1 {
+    width: 100%; }
+  /**
+	* Halves
+	*/
+  .g-palm-1\/2, .g-palm-2\/4, .g-palm-3\/6, .g-palm-4\/8, .g-palm-5\/10, .g-palm-6\/12 {
+    width: 50%; }
+  /**
+	* Thirds
+	*/
+  .g-palm-1\/3, .g-palm-2\/6, .g-palm-4\/12 {
+    width: 33.333%; }
+  .g-palm-2\/3, .g-palm-4\/6, .g-palm-8\/12 {
+    width: 66.666%; }
+  /**
+	* Quarters
+	*/
+  .g-palm-1\/4, .g-palm-2\/8, .g-palm-3\/12 {
+    width: 25%; }
+  .g-palm-3\/4, .g-palm-6\/8, .g-palm-9\/12 {
+    width: 75%; }
+  /**
+	* Fifths
+	*/
+  .g-palm-1\/5, .g-palm-2\/10 {
+    width: 20%; }
+  .g-palm-2\/5, .g-palm-4\/10 {
+    width: 40%; }
+  .g-palm-3\/5, .g-palm-6\/10 {
+    width: 60%; }
+  .g-palm-4\/5, .g-palm-8\/10 {
+    width: 80%; }
+  /**
+	* Sixths
+	*/
+  .g-palm-1\/6, .g-palm-2\/12 {
+    width: 16.666%; }
+  .g-palm-5\/6, .g-palm-10\/12 {
+    width: 83.333%; }
+  /**
+	* Eighths
+	*/
+  .g-palm-1\/8 {
+    width: 12.5%; }
+  .g-palm-3\/8 {
+    width: 37.5%; }
+  .g-palm-5\/8 {
+    width: 62.5%; }
+  .g-palm-7\/8 {
+    width: 87.5%; }
+  /**
+	* Tenths
+	*/
+  .g-palm-1\/10 {
+    width: 10%; }
+  .g-palm-3\/10 {
+    width: 30%; }
+  .g-palm-7\/10 {
+    width: 70%; }
+  .g-palm-9\/10 {
+    width: 90%; }
+  /**
+	* Twelfths
+	*/
+  .g-palm-1\/12 {
+    width: 8.333%; }
+  .g-palm-5\/12 {
+    width: 41.666%; }
+  .g-palm-7\/12 {
+    width: 58.333%; }
+  .g-palm-11\/12 {
+    width: 91.666%; } }
+
+@media only screen and (min-width: 481px) and (max-width: 879px) {
+  /**
+	* Whole
+	*/
+  .g-lap-1\/1 {
+    width: 100%; }
+  /**
+	* Halves
+	*/
+  .g-lap-1\/2, .g-lap-2\/4, .g-lap-3\/6, .g-lap-4\/8, .g-lap-5\/10, .g-lap-6\/12 {
+    width: 50%; }
+  /**
+	* Thirds
+	*/
+  .g-lap-1\/3, .g-lap-2\/6, .g-lap-4\/12 {
+    width: 33.333%; }
+  .g-lap-2\/3, .g-lap-4\/6, .g-lap-8\/12 {
+    width: 66.666%; }
+  /**
+	* Quarters
+	*/
+  .g-lap-1\/4, .g-lap-2\/8, .g-lap-3\/12 {
+    width: 25%; }
+  .g-lap-3\/4, .g-lap-6\/8, .g-lap-9\/12 {
+    width: 75%; }
+  /**
+	* Fifths
+	*/
+  .g-lap-1\/5, .g-lap-2\/10 {
+    width: 20%; }
+  .g-lap-2\/5, .g-lap-4\/10 {
+    width: 40%; }
+  .g-lap-3\/5, .g-lap-6\/10 {
+    width: 60%; }
+  .g-lap-4\/5, .g-lap-8\/10 {
+    width: 80%; }
+  /**
+	* Sixths
+	*/
+  .g-lap-1\/6, .g-lap-2\/12 {
+    width: 16.666%; }
+  .g-lap-5\/6, .g-lap-10\/12 {
+    width: 83.333%; }
+  /**
+	* Eighths
+	*/
+  .g-lap-1\/8 {
+    width: 12.5%; }
+  .g-lap-3\/8 {
+    width: 37.5%; }
+  .g-lap-5\/8 {
+    width: 62.5%; }
+  .g-lap-7\/8 {
+    width: 87.5%; }
+  /**
+	* Tenths
+	*/
+  .g-lap-1\/10 {
+    width: 10%; }
+  .g-lap-3\/10 {
+    width: 30%; }
+  .g-lap-7\/10 {
+    width: 70%; }
+  .g-lap-9\/10 {
+    width: 90%; }
+  /**
+	* Twelfths
+	*/
+  .g-lap-1\/12 {
+    width: 8.333%; }
+  .g-lap-5\/12 {
+    width: 41.666%; }
+  .g-lap-7\/12 {
+    width: 58.333%; }
+  .g-lap-11\/12 {
+    width: 91.666%; } }
+
+@media only screen and (min-width: 481px) {
+  /**
+	* Whole
+	*/
+  .g-lap-and-up-1\/1 {
+    width: 100%; }
+  /**
+	* Halves
+	*/
+  .g-lap-and-up-1\/2, .g-lap-and-up-2\/4, .g-lap-and-up-3\/6, .g-lap-and-up-4\/8, .g-lap-and-up-5\/10, .g-lap-and-up-6\/12 {
+    width: 50%; }
+  /**
+	* Thirds
+	*/
+  .g-lap-and-up-1\/3, .g-lap-and-up-2\/6, .g-lap-and-up-4\/12 {
+    width: 33.333%; }
+  .g-lap-and-up-2\/3, .g-lap-and-up-4\/6, .g-lap-and-up-8\/12 {
+    width: 66.666%; }
+  /**
+	* Quarters
+	*/
+  .g-lap-and-up-1\/4, .g-lap-and-up-2\/8, .g-lap-and-up-3\/12 {
+    width: 25%; }
+  .g-lap-and-up-3\/4, .g-lap-and-up-6\/8, .g-lap-and-up-9\/12 {
+    width: 75%; }
+  /**
+	* Fifths
+	*/
+  .g-lap-and-up-1\/5, .g-lap-and-up-2\/10 {
+    width: 20%; }
+  .g-lap-and-up-2\/5, .g-lap-and-up-4\/10 {
+    width: 40%; }
+  .g-lap-and-up-3\/5, .g-lap-and-up-6\/10 {
+    width: 60%; }
+  .g-lap-and-up-4\/5, .g-lap-and-up-8\/10 {
+    width: 80%; }
+  /**
+	* Sixths
+	*/
+  .g-lap-and-up-1\/6, .g-lap-and-up-2\/12 {
+    width: 16.666%; }
+  .g-lap-and-up-5\/6, .g-lap-and-up-10\/12 {
+    width: 83.333%; }
+  /**
+	* Eighths
+	*/
+  .g-lap-and-up-1\/8 {
+    width: 12.5%; }
+  .g-lap-and-up-3\/8 {
+    width: 37.5%; }
+  .g-lap-and-up-5\/8 {
+    width: 62.5%; }
+  .g-lap-and-up-7\/8 {
+    width: 87.5%; }
+  /**
+	* Tenths
+	*/
+  .g-lap-and-up-1\/10 {
+    width: 10%; }
+  .g-lap-and-up-3\/10 {
+    width: 30%; }
+  .g-lap-and-up-7\/10 {
+    width: 70%; }
+  .g-lap-and-up-9\/10 {
+    width: 90%; }
+  /**
+	* Twelfths
+	*/
+  .g-lap-and-up-1\/12 {
+    width: 8.333%; }
+  .g-lap-and-up-5\/12 {
+    width: 41.666%; }
+  .g-lap-and-up-7\/12 {
+    width: 58.333%; }
+  .g-lap-and-up-11\/12 {
+    width: 91.666%; } }
+
+@media only screen and (max-width: 879px) {
+  /**
+	* Whole
+	*/
+  .g-portable-1\/1 {
+    width: 100%; }
+  /**
+	* Halves
+	*/
+  .g-portable-1\/2, .g-portable-2\/4, .g-portable-3\/6, .g-portable-4\/8, .g-portable-5\/10, .g-portable-6\/12 {
+    width: 50%; }
+  /**
+	* Thirds
+	*/
+  .g-portable-1\/3, .g-portable-2\/6, .g-portable-4\/12 {
+    width: 33.333%; }
+  .g-portable-2\/3, .g-portable-4\/6, .g-portable-8\/12 {
+    width: 66.666%; }
+  /**
+	* Quarters
+	*/
+  .g-portable-1\/4, .g-portable-2\/8, .g-portable-3\/12 {
+    width: 25%; }
+  .g-portable-3\/4, .g-portable-6\/8, .g-portable-9\/12 {
+    width: 75%; }
+  /**
+	* Fifths
+	*/
+  .g-portable-1\/5, .g-portable-2\/10 {
+    width: 20%; }
+  .g-portable-2\/5, .g-portable-4\/10 {
+    width: 40%; }
+  .g-portable-3\/5, .g-portable-6\/10 {
+    width: 60%; }
+  .g-portable-4\/5, .g-portable-8\/10 {
+    width: 80%; }
+  /**
+	* Sixths
+	*/
+  .g-portable-1\/6, .g-portable-2\/12 {
+    width: 16.666%; }
+  .g-portable-5\/6, .g-portable-10\/12 {
+    width: 83.333%; }
+  /**
+	* Eighths
+	*/
+  .g-portable-1\/8 {
+    width: 12.5%; }
+  .g-portable-3\/8 {
+    width: 37.5%; }
+  .g-portable-5\/8 {
+    width: 62.5%; }
+  .g-portable-7\/8 {
+    width: 87.5%; }
+  /**
+	* Tenths
+	*/
+  .g-portable-1\/10 {
+    width: 10%; }
+  .g-portable-3\/10 {
+    width: 30%; }
+  .g-portable-7\/10 {
+    width: 70%; }
+  .g-portable-9\/10 {
+    width: 90%; }
+  /**
+	* Twelfths
+	*/
+  .g-portable-1\/12 {
+    width: 8.333%; }
+  .g-portable-5\/12 {
+    width: 41.666%; }
+  .g-portable-7\/12 {
+    width: 58.333%; }
+  .g-portable-11\/12 {
+    width: 91.666%; } }
+
+@media only screen and (min-width: 880px) {
+  /**
+	* Whole
+	*/
+  .g-desk-1\/1 {
+    width: 100%; }
+  /**
+	* Halves
+	*/
+  .g-desk-1\/2, .g-desk-2\/4, .g-desk-3\/6, .g-desk-4\/8, .g-desk-5\/10, .g-desk-6\/12 {
+    width: 50%; }
+  /**
+	* Thirds
+	*/
+  .g-desk-1\/3, .g-desk-2\/6, .g-desk-4\/12 {
+    width: 33.333%; }
+  .g-desk-2\/3, .g-desk-4\/6, .g-desk-8\/12 {
+    width: 66.666%; }
+  /**
+	* Quarters
+	*/
+  .g-desk-1\/4, .g-desk-2\/8, .g-desk-3\/12 {
+    width: 25%; }
+  .g-desk-3\/4, .g-desk-6\/8, .g-desk-9\/12 {
+    width: 75%; }
+  /**
+	* Fifths
+	*/
+  .g-desk-1\/5, .g-desk-2\/10 {
+    width: 20%; }
+  .g-desk-2\/5, .g-desk-4\/10 {
+    width: 40%; }
+  .g-desk-3\/5, .g-desk-6\/10 {
+    width: 60%; }
+  .g-desk-4\/5, .g-desk-8\/10 {
+    width: 80%; }
+  /**
+	* Sixths
+	*/
+  .g-desk-1\/6, .g-desk-2\/12 {
+    width: 16.666%; }
+  .g-desk-5\/6, .g-desk-10\/12 {
+    width: 83.333%; }
+  /**
+	* Eighths
+	*/
+  .g-desk-1\/8 {
+    width: 12.5%; }
+  .g-desk-3\/8 {
+    width: 37.5%; }
+  .g-desk-5\/8 {
+    width: 62.5%; }
+  .g-desk-7\/8 {
+    width: 87.5%; }
+  /**
+	* Tenths
+	*/
+  .g-desk-1\/10 {
+    width: 10%; }
+  .g-desk-3\/10 {
+    width: 30%; }
+  .g-desk-7\/10 {
+    width: 70%; }
+  .g-desk-9\/10 {
+    width: 90%; }
+  /**
+	* Twelfths
+	*/
+  .g-desk-1\/12 {
+    width: 8.333%; }
+  .g-desk-5\/12 {
+    width: 41.666%; }
+  .g-desk-7\/12 {
+    width: 58.333%; }
+  .g-desk-11\/12 {
+    width: 91.666%; } }
+
+/**
+ * If you have set the additional `$responsive-extra` variable to ‘true’ in
+ * `_vars.scss` then you now have access to the following class available to
+ * accomodate much larger screen resolutions.
+ */
+/* endif */
+/*------------------------------------*    $PUSH
+\*------------------------------------*/
+/**
+ * Push classes, to move grid items over to the right by certain amounts.
+ */
+/*------------------------------------*    $PULL
+\*------------------------------------*/
+/**
+ * Pull classes, to move grid items over to the right by certain amounts.
+ */
+/*------------------------------------*    $DEBUG
+\*------------------------------------*/
+/* endif */
+/*------------------------------------*    CUSTOM.CSS
+\*------------------------------------*/
+/*------------------------------------*    $UTILITIES
+\*------------------------------------*/
+/*------------------------------------*    $FUNCTIONS
+\*------------------------------------*/
+/*------------------------------------*    $MIXINS
+\*------------------------------------*/
+/*------------------------------------*    $MIXINS
+\*------------------------------------*/
+/*------------------------------------*    $MENUS
+\*------------------------------------*/
+/*------------------------------------*    $MENUS
+\*------------------------------------*/
+/*------------------------------------*    $COLLAPSED ANCHOR
+\*------------------------------------*/
+/*------------------------------------*    $MODIFIERS
+\*------------------------------------*/
+/*------------------------------------*    $BACKGROUND MIXINS
+\*------------------------------------*/
+/*------------------------------------*    $BACKGROUND COLORS
+\*------------------------------------*/
+/*------------------------------------*    $LAYOUT
+\*------------------------------------*/
+/*------------------------------------*    $ISLANDS
+\*------------------------------------*/
+/*------------------------------------*    $MARGIN AND PADDING
+\*------------------------------------*/
+/**
+ * these mixins shouldn't need to be used directly except for in the placeholders
+ * defined in _layouts.scss
+ *
+ * prefer extending those placeholders from your selectors over including these mixins
+ *
+ * this will reduce duplication of the same properties over your stylesheets, while
+ * allowing you to reuse consistent spacing across your stylesheets
+ *
+ * situations on when to rather use an include is if you need to override margin or
+ * padding in a media query when the placeholder has been extended. Due to source
+ * order, you will not always be able to override the placeholders.
+ * Including the relevant mixin will then allow you to override the properties in
+ * your media query.
+ */
+/*------------------------------------*    $MARGIN
+\*------------------------------------*/
+/*------------------------------------*    $PADDING
+\*------------------------------------*/
+/*------------------------------------*    $BASE
+\*------------------------------------*/
+/*------------------------------------*    $BASE
+\*------------------------------------*/
+/*------------------------------------*    $DOCUMENT
+\*------------------------------------*/
+/**
+ * This section houses styles for the base elements of the page, generally body and
+ * html
+ */
+/**
+ * Fix fatty fonts in Chrome and Firefox on Mac:
+ * http://maximilianhoffmann.com/posts/better-font-rendering-on-osx
+ */
+/**
+ * Use sticky footer:
+ * http://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/
+ *
+ * requires flex: 1 0 auto; on primary content
+ */
+/**
+ * Prevent Chrome and Safari from flashing when a user taps on mobile
+ */
+html {
+  -webkit-tap-highlight-color: transparent; }
+
+/**
+ * Fix IE8 not showing extended headers and footers when overflowing horizontally
+ */
+.ie8 body {
+  display: table; }
+
+/**
+ * get 60fps scrolling by disabling pointer events:
+ * http://www.thecssninja.com/javascript/pointer-events-60fps
+ */
+.disable-hover,
+.disable-hover * {
+  pointer-events: none !important; }
+
+/*------------------------------------*    $FONTS
+\*------------------------------------*/
+/*------------------------------------*    $ICON FONT
+\*------------------------------------*/
+@font-face {
+  font-family: "base-icon-font";
+  src: url("fnt/base-icon-font/base-icon-font.eot");
+  src: url("fnt/base-icon-font/base-icon-font.eot?#iefix") format("embedded-opentype"), url("fnt/base-icon-font/base-icon-font.woff2") format("woff2"), url("fnt/base-icon-font/base-icon-font.woff") format("woff"), url("fnt/base-icon-font/base-icon-font.ttf") format("truetype"), url("fnt/base-icon-font/base-icon-font.svg#base-icon-font") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+/*------------------------------------*    $BASE FONT
+\*------------------------------------*/
+@font-face {
+  font-family: "[font-name]";
+  src: url("../fnt/[font-folder]/[font-file-name-without-extension].eot");
+  src: url("../fnt/[font-folder]/[font-file-name-without-extension].eot?#iefix") format("embedded-opentype"), url("../fnt/[font-folder]/[font-file-name-without-extension].woff2") format("woff2"), url("../fnt/[font-folder]/[font-file-name-without-extension].woff") format("woff"), url("../fnt/[font-folder]/[font-file-name-without-extension].ttf") format("truetype"), url("../fnt/[font-folder]/[font-file-name-without-extension].svg#[font-file-name-without-extension]") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "[font-name]";
+  src: url("../fnt/[font-folder]/[italic-font-file-name-without-extension].eot");
+  src: url("../fnt/[font-folder]/[italic-font-file-name-without-extension].eot?#iefix") format("embedded-opentype"), url("../fnt/[font-folder]/[italic-font-file-name-without-extension].woff2") format("woff2"), url("../fnt/[font-folder]/[italic-font-file-name-without-extension].woff") format("woff"), url("../fnt/[font-folder]/[italic-font-file-name-without-extension].ttf") format("truetype"), url("../fnt/[font-folder]/[italic-font-file-name-without-extension].svg#[italic-font-file-name-without-extension]") format("svg");
+  font-weight: normal;
+  font-style: italic; }
+
+@font-face {
+  font-family: "[font-name]";
+  src: url("../fnt/[font-folder]/[bold-font-file-name-without-extension].eot");
+  src: url("../fnt/[font-folder]/[bold-font-file-name-without-extension].eot?#iefix") format("embedded-opentype"), url("../fnt/[font-folder]/[bold-font-file-name-without-extension].woff2") format("woff2"), url("../fnt/[font-folder]/[bold-font-file-name-without-extension].woff") format("woff"), url("../fnt/[font-folder]/[bold-font-file-name-without-extension].ttf") format("truetype"), url("../fnt/[font-folder]/[bold-font-file-name-without-extension].svg#[bold-font-file-name-without-extension]") format("svg");
+  font-weight: bold;
+  font-style: normal; }
+
+@font-face {
+  font-family: "[font-name]";
+  src: url("../fnt/[font-folder]/[bold-italic-font-file-name-without-extension].eot");
+  src: url("../fnt/[font-folder]/[bold-italic-font-file-name-without-extension].eot?#iefix") format("embedded-opentype"), url("../fnt/[font-folder]/[bold-italic-font-file-name-without-extension].woff2") format("woff2"), url("../fnt/[font-folder]/[bold-italic-font-file-name-without-extension].woff") format("woff"), url("../fnt/[font-folder]/[bold-italic-font-file-name-without-extension].ttf") format("truetype"), url("../fnt/[font-folder]/[bold-italic-font-file-name-without-extension].svg#[bold-italic-font-file-name-without-extension]") format("svg");
+  font-weight: bold;
+  font-style: italic; }
+
+/*------------------------------------*    $FORMS
+\*------------------------------------*/
+/*input:valid, textarea:valid {}
+input:invalid, textarea:invalid {}*/
+::-webkit-input-placeholder {
+  color: #666; }
+
+:-moz-placeholder {
+  color: #666; }
+
+:-o-placeholder {
+  color: #666; }
+
+:-ms-placeholder {
+  color: #666; }
+
+label {
+  cursor: pointer; }
+
+textarea {
+  resize: vertical; }
+
+button, input, select, textarea {
+  vertical-align: baseline; }
+
+input, textarea {
+  border: 1px solid #666;
+  height: auto;
+  line-height: normal;
+  padding: .5em; }
+
+input[type="checkbox"],
+input[type="radio"] {
+  margin-bottom: 0; }
+
+/*------------------------------------*    $HEADINGS
+\*------------------------------------*/
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+  line-height: 1; }
+
+/*------------------------------------*    $IMAGES
+\*------------------------------------*/
+/**
+ * Fix SVG images not scaling proportionately in IE9, IE10, IE11
+ */
+/*------------------------------------*    $LINKS
+\*------------------------------------*/
+a, button, .btn_-primary, .menu__sub {
+  transition: all 150ms ease-in-out; }
+  a:active, button:active, .btn_-primary:active, .menu__sub:active {
+    transition: none; }
+
+a {
+  text-decoration: none;
+  outline: 0; }
+
+/*------------------------------------*    $LISTS
+\*------------------------------------*/
+.menu_-primary, .menu__sub {
+  list-style-type: none;
+  padding: 0;
+  margin: 0; }
+
+/*------------------------------------*    $RULES
+\*------------------------------------*/
+/*------------------------------------*    $TABLES
+\*------------------------------------*/
+th, td {
+  border: 1px solid; }
+
+/*------------------------------------*    $BASE
+\*------------------------------------*/
+p {
+  -webkit-hyphens: auto;
+     -moz-hyphens: auto;
+      -ms-hyphens: auto;
+          hyphens: auto; }
+
+i {
+  font-style: normal; }
+
+blockquote {
+  border-left: 1px solid #666;
+  font-style: italic;
+  margin: 24px;
+  margin: 1.5rem;
+  padding: 4px 24px;
+  padding: 0.25rem 1.5rem; }
+
+kbd {
+  border: 1px solid #e6e6e6;
+  border-radius: 2px;
+  font-size: 85%;
+  padding: .25em .5em;
+  vertical-align: middle; }
+
+hr {
+  border: 1px solid;
+  border-left: 0;
+  border-right: 0;
+  border-top: 0; }
+
+/*------------------------------------*    $COMPONENTS
+\*------------------------------------*/
+/*------------------------------------*    $COMPONENTS
+\*------------------------------------*/
+/*------------------------------------*    $BUTTONS
+\*------------------------------------*/
+.btn_-primary {
+  color: #fff; }
+
+.btn_-primary {
+  background-color: #333; }
+  .btn_-primary:hover, .btn_-primary:focus {
+    background-color: #666666; }
+  .btn_-primary:active {
+    background-color: #1a1a1a; }
+
+/*------------------------------------*    $LOADERS
+\*------------------------------------*/
+/*------------------------------------*    $MENU
+\*------------------------------------*/
+/**
+ * placeholder for button that toggles menu
+ */
+.menu-toggle {
+  display: none; }
+  .menu-toggle:focus {
+    outline: none; }
+  @media only screen and (max-width: 879px) {
+    .menu-toggle {
+      display: inline-block; } }
+
+/**
+ * placeholder for menu container used to hide menus on mobile / tablet
+ */
+@media only screen and (max-width: 879px) {
+  .menu_-primary-container {
+    overflow: hidden; } }
+
+.menu_-primary {
+  display: inline-block; }
+  @media only screen and (max-width: 879px) {
+    .menu_-primary {
+      display: block; } }
+
+.menu__item {
+  position: relative;
+  display: inline-block; }
+  @media only screen and (max-width: 879px) {
+    .menu__item {
+      display: block; } }
+  .menu__item > a {
+    display: block;
+    color: #333;
+    line-height: 3;
+    padding-left: 1em;
+    padding-right: 1em; }
+    @media only screen and (max-width: 879px) {
+      .menu__item > a {
+        border-width: 0;
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        padding-bottom: 0;
+        padding-top: 0; }
+        .is-open-menu .menu__item > a {
+          max-height: 8em;
+          opacity: 1;
+          padding-top: .5em;
+          padding-bottom: .5em; } }
+  .menu__sub .menu__item {
+    display: block; }
+
+.menu__item_-current > a,
+.menu__item_-current-parent > a, .menu__item_-current > a:hover,
+.menu__item_-current-parent > a:hover, .menu__item_-current > a:focus,
+.menu__item_-current-parent > a:focus, .menu__item_-current > a:active,
+.menu__item_-current-parent > a:active {
+  cursor: default; }
+
+.menu__sub {
+  background-color: #fff;
+  max-height: 0;
+  overflow: hidden;
+  position: absolute; }
+  a:hover + .menu__sub, .menu__sub:hover {
+    border: 1px solid #666;
+    max-height: none;
+    overflow: visible; }
+  .menu__sub a {
+    min-width: 225px;
+    white-space: nowrap;
+    border-width: 0;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    padding-bottom: 0;
+    padding-top: 0; }
+    @media only screen and (max-width: 879px) {
+      .menu__sub a {
+        white-space: normal;
+        min-width: none;
+        padding: 0 1.5em; } }
+  a:hover + .menu__sub > .menu__item a, .menu__sub:hover > .menu__item > a {
+    max-height: 8em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    opacity: 1; }
+  @media only screen and (max-width: 879px) {
+    .menu__sub {
+      display: block;
+      position: relative;
+      margin-left: 1.5em;
+      border: 0;
+      opacity: 1;
+      z-index: 0; } }
+
+.menu__sub .menu__sub {
+  top: 0;
+  left: 100%; }
+  @media only screen and (max-width: 879px) {
+    .menu__sub .menu__sub {
+      top: auto;
+      left: auto; } }
+
+/*------------------------------------*    $PRIMARY MENU
+\*------------------------------------*/
+/*------------------------------------*    $PAGES
+\*------------------------------------*/
+/*------------------------------------*    $PAGES
+\*------------------------------------*/
+/*------------------------------------*    $VENDOR
+\*------------------------------------*/
+/*------------------------------------*    $VENDOR STYLES
+\*------------------------------------*/
+/*------------------------------------*    $AUTOCOMPLETE
+\*------------------------------------*/
+/*------------------------------------*    $DATEPICKER
+\*------------------------------------*/
+/*------------------------------------*    $FILE UPLOAD
+\*------------------------------------*/
+/*------------------------------------*    $TOOLTIPS
+\*------------------------------------*/
+/*------------------------------------*    $WYSIWYG
+\*------------------------------------*/
+/*------------------------------------*    $MODIFIERS
+\*------------------------------------*/
+/**
+ * modifieres must come last that classes can be applied directly
+ * to markup to override styles
+ */
+/*------------------------------------*    $MODIFIERS
+\*------------------------------------*/
+/*------------------------------------*    $BACKGROUND
+\*------------------------------------*/
+/*------------------------------------*    $BACKGROUNDS
+\*------------------------------------*/
+/*------------------------------------*    $BACKGROUND COLORS
+\*------------------------------------*/
+.bgc_-primary-dk {
+  background-color: #1a1a1a; }
+
+.bgc_-primary {
+  background-color: #333; }
+
+.bgc_-primary-lt {
+  background-color: #666666; }
+
+/*------------------------------------*    $BACKGROUND LINK STATES
+\*------------------------------------*/
+a.bgc_-primary,
+button.bgc_-primary {
+  background-color: #333; }
+  a.bgc_-primary:hover, a.bgc_-primary:focus,
+  button.bgc_-primary:hover,
+  button.bgc_-primary:focus {
+    background-color: #666666; }
+  a.bgc_-primary:active,
+  button.bgc_-primary:active {
+    background-color: #1a1a1a; }
+
+/*------------------------------------*    $TYPOGRAPHY
+\*------------------------------------*/
+/*------------------------------------*    $TYPOGRAPHY
+\*------------------------------------*/
+/*------------------------------------*    $ALIGNMENT
+\*------------------------------------*/
+.align_left {
+  text-align: left; }
+
+.align_center {
+  text-align: center; }
+
+.align_right {
+  text-align: right; }
+
+/*------------------------------------*    $FONT COLOR MODIFIERS
+\*------------------------------------*/
+a {
+  color: #333; }
+
+a:hover, a:focus {
+  color: #666666; }
+
+a:active {
+  color: #1a1a1a; }
+
+/*------------------------------------*    $FONT FAMILY
+\*------------------------------------*/
+/*------------------------------------*    $VISIBILITY
+\*------------------------------------*/
+/**
+ * Hide from both screenreaders and browsers: h5bp.com/u
+ */
+.hidden {
+  display: none;
+  visibility: hidden; }
+
+/**
+ * Hide content off-screen without resorting to `display:none;`, also provide
+ * breakpoint specific hidden elements.
+ */
+.accessibility,
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px; }
+  .focusable.accessibility:active,
+  .focusable.visuallyhidden:active, .focusable.accessibility:focus,
+  .focusable.visuallyhidden:focus {
+    position: static;
+    clip: auto;
+    width: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible; }
+
+@media only screen and (max-width: 480px) {
+  .accessibility_-palm,
+  .visuallyhidden_-palm {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px; } }
+
+@media only screen and (min-width: 481px) and (max-width: 879px) {
+  .accessibility_-lap,
+  .visuallyhidden_-lap {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px; } }
+
+@media only screen and (min-width: 481px) {
+  .accessibility_-lap-and-up,
+  .visuallyhidden_-lap-and-up {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px; } }
+
+@media only screen and (max-width: 879px) {
+  .accessibility_-portable,
+  .visuallyhidden_-portable {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px; } }
+
+@media only screen and (min-width: 880px) {
+  .accessibility_-desk,
+  .visuallyhidden_-desk {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px; } }
+
+@media only screen and (min-width: 1280px) {
+  .accessibility_-desk-wide,
+  .visuallyhidden_-desk-wide {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px; } }
+
+/*------------------------------------*    $WYSIWYG CLASSES
+\*------------------------------------*/
+/*------------------------------------*    $TINYMCE
+\*------------------------------------*/
+/*------------------------------------*    $CKEDITOR
+\*------------------------------------*/
+img.align_left {
+  float: left;
+  margin-right: 24px;
+  margin-right: 1.5rem;
+  margin-bottom: 16px;
+  margin-bottom: 1rem; }
+
+img.align_right {
+  float: right;
+  margin-left: 24px;
+  margin-left: 1.5rem;
+  margin-bottom: 16px;
+  margin-bottom: 1rem; }
+
+img.align_center {
+  display: block;
+  margin: 0 auto; }
+
+/*------------------------------------*    $LAYOUT
+\*------------------------------------*/
+/**
+ * layout, as with modifier, must come last that classes can be applied directly
+ * to markup as modifiers
+ */
+/*------------------------------------*    $ALL LAYOUT
+\*------------------------------------*/
+/*------------------------------------*    $DISPLAY
+\*------------------------------------*/
+/*------------------------------------*    $FOOTER
+\*------------------------------------*/
+/*------------------------------------*    $GRID
+\*------------------------------------*/
+/**
+ * Extend grid modifiers here
+ */
+/*------------------------------------*    $HEADER
+\*------------------------------------*/
+/*------------------------------------*		$ISLANDS
+\*------------------------------------*/
+.island {
+  padding-top: 88px;
+  padding-top: 5.5rem;
+  padding-bottom: 88px;
+  padding-bottom: 5.5rem; }
+
+/*------------------------------------*    $MARGIN
+\*------------------------------------*/
+/*------------------------------------*    $PADDING
+\*------------------------------------*/
+/*------------------------------------*    $WRAPS
+\*------------------------------------*/
+/**
+ * Generates placeholders for wrap widths
+ * e.g.
+
+  %wrap-width_-large { max-width: 1280px;}
+  %wrap-width        { max-width: 960px;}
+  %wrap-width_-small { max-width: 640px;}
+ */
+.wrap {
+  max-width: 1280px; }
+
+.wrap {
+  margin-right: auto;
+  margin-left: auto; }
+
+.wrap {
+  padding-left: 16px;
+  padding-left: 1rem;
+  padding-right: 16px;
+  padding-right: 1rem; }
+
+/*------------------------------------*    $ANIMATIONS
+\*------------------------------------*/
+/*------------------------------------*    $ANIMATIONS
+\*------------------------------------*/
+/*------------------------------------*    $ANIMATIONS
+\*------------------------------------*/
+/**
+ * import print styles
+ */

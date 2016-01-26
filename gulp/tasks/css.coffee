@@ -21,5 +21,5 @@ gulp.task "css", () ->
     .pipe plumber(conf.plumber)
     .pipe sass({errLogToConsole: true}).on('error', handleError)
     .pipe autoprefixer({browsers: ['last 2 versions']})
-    .pipe gulp.dest(conf.path.dev.css)
+    .pipe gulp.dest("#{conf.path.dest}/assets/css")
     .pipe global.browserSync.stream match: '**/*.css'
